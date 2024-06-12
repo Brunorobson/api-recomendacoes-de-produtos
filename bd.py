@@ -19,124 +19,78 @@ produtos = [
         'nome': 'PlayStation 5',
         'ano': '2020',
         'categoria': 2,
+    }
+]
+
+usuarios = [
+    {
+        'id': 1,
+        'nome': 'Bruno Robson',
     },
     {
-        'id': 4,
-        'marca': 'Dell',
-        'nome': 'XPS 13',
-        'ano': '2021',
-        'categoria': 3,
+        'id': 1,
+        'nome': 'Lucas Mateus',
     },
     {
-        'id': 5,
-        'marca': 'Microsoft',
-        'nome': 'Surface Pro 7',
-        'ano': '2019',
-        'categoria': 4,
+        'id': 1,
+        'nome': 'Gustavo',
+    }
+]
+
+categoria = [
+    {
+        'id': 1,
+        'nome': 'Celular',
     },
     {
-        'id': 6,
-        'marca': 'Apple',
-        'nome': 'MacBook Air',
-        'ano': '2020',
-        'categoria': 3,
+        'id': 1,
+        'titulo': 'Console',
+    }
+]
+compra = [
+    {
+        'usuario_id': 1,
+        'produto_id': 2,
     },
     {
-        'id': 7,
-        'marca': 'HP',
-        'nome': 'Envy 13',
-        'ano': '2021',
-        'categoria': 3,
+        'usuario_id': 2,
+        'produto_id': 2,
+    },
+      {
+        'usuario_id': 3,
+        'produto_id': 3,
+    }
+]
+
+produtocurtido = [
+    {
+        'usuario_id': 1,
+        'produto_id': 2,
     },
     {
-        'id': 8,
-        'marca': 'Canon',
-        'nome': 'EOS R5',
-        'ano': '2020',
-        'categoria': 5,
+        'usuario_id': 2,
+        'produto_id': 2,
+    },
+      {
+        'usuario_id': 3,
+        'produto_id': 3,
+    }
+]
+
+avaliacao = [
+    {
+        'usuario_id': 1,
+        'produto_id': 2,
+        'nota': 3
     },
     {
-        'id': 9,
-        'marca': 'Nikon',
-        'nome': 'Z7 II',
-        'ano': '2020',
-        'categoria': 5,
+        'usuario_id': 2,
+        'produto_id': 2,
+        'nota': 5
     },
-    {
-        'id': 10,
-        'marca': 'LG',
-        'nome': 'OLED CX',
-        'ano': '2020',
-        'categoria': 6,
-    },
-    {
-        'id': 11,
-        'marca': 'Sony',
-        'nome': 'Bravia X90J',
-        'ano': '2021',
-        'categoria': 6,
-    },
-    {
-        'id': 12,
-        'marca': 'Bose',
-        'nome': 'QuietComfort 35 II',
-        'ano': '2017',
-        'categoria': 7,
-    },
-    {
-        'id': 13,
-        'marca': 'Apple',
-        'nome': 'AirPods Pro',
-        'ano': '2019',
-        'categoria': 7,
-    },
-    {
-        'id': 14,
-        'marca': 'Fitbit',
-        'nome': 'Charge 4',
-        'ano': '2020',
-        'categoria': 8,
-    },
-    {
-        'id': 15,
-        'marca': 'Garmin',
-        'nome': 'Forerunner 945',
-        'ano': '2019',
-        'categoria': 8,
-    },
-    {
-        'id': 16,
-        'marca': 'GoPro',
-        'nome': 'Hero 9',
-        'ano': '2020',
-        'categoria': 5,
-    },
-    {
-        'id': 17,
-        'marca': 'Sony',
-        'nome': 'WH-1000XM4',
-        'ano': '2020',
-        'categoria': 7,
-    },
-    {
-        'id': 18,
-        'marca': 'Apple',
-        'nome': 'iPad Pro',
-        'ano': '2021',
-        'categoria': 4,
-    },
-    {
-        'id': 19,
-        'marca': 'Asus',
-        'nome': 'ROG Strix G15',
-        'ano': '2021',
-        'categoria': 3,
-    },
-    {
-        'id': 20,
-        'marca': 'Microsoft',
-        'nome': 'Xbox Series X',
-        'ano': '2020',
-        'categoria': 2,
-    },
+      {
+        'usuario_id': 3,
+        'produto_id': 3,
+        'nota': 4
+    }
 ]
