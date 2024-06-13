@@ -1,68 +1,67 @@
 from flask import Flask, make_response, jsonify, request
-from bd import produtos as bd_produtos
+from configuration import configure_db
+from database.models.Produto import Produto
+from playhouse.shortcuts import model_to_dict
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 @app.route('/produtos', methods=['GET'])
 def get_produtos():
+    produtos = list(Produto.select().dicts())
     return make_response(
         jsonify(
             Mensagem='Lista de Produto',
-            Produtos=bd_produtos
+            Produtos=produtos
         )
     )
 
 @app.route('/produtos/create', methods=['POST'])
 def create_produto():
-    produto = request.json
-    bd_produtos.append(produto)
+    data = request.json
+    produto = Produto.create(**data)
     return make_response(
         jsonify(
             Mensagem='Produto cadastrado com sucesso',
-            Produto=produto
+            Produto=model_to_dict(produto)
         )
     )
 
 @app.route('/produto/delete/<int:produto_id>', methods=['DELETE'])
 def delete_produto(produto_id):
-    global bd_produtos
-    produto = next((p for p in bd_produtos if p["id"] == produto_id), None)
-    if produto:
-        bd_produtos = [p for p in bd_produtos if p["id"] != produto_id]
+    query = Produto.delete().where(Produto.id == produto_id)
+    if query.execute():
         return make_response(
             jsonify(
-                Mensagem='Produto excluído com sucesso',
-                Produto=produto
+                Mensagem='Produto excluído com sucesso'
             )
         )
     else:
         return make_response(
             jsonify(
                 Mensagem='Produto não encontrado'
-            ),
-            404
+            ), 404
         )
 
 @app.route('/produto/edit/<int:produto_id>', methods=['PUT'])
 def edit_produto(produto_id):
-    produto = request.json
-    index = next((i for i, p in enumerate(bd_produtos) if p["id"] == produto_id), None)
-    if index is not None:
-        bd_produtos[index] = {**bd_produtos[index], **produto}
+    data = request.json
+    query = Produto.update(**data).where(Produto.id == produto_id)
+    if query.execute():
+        produto = Produto.get_by_id(produto_id)
         return make_response(
             jsonify(
                 Mensagem='Produto atualizado com sucesso',
-                Produto=bd_produtos[index]
+                Produto=model_to_dict(produto)
             )
         )
     else:
         return make_response(
             jsonify(
                 Mensagem='Produto não encontrado'
-            ),
-            404
+            ), 404
         )
 
+configure_db()
 if __name__ == '__main__':
     app.run(debug=True)
