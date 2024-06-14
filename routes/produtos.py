@@ -7,12 +7,7 @@ produtos_bp = Blueprint('produtos', __name__)
 @produtos_bp.route('/produtos', methods=['GET'])
 def get_produtos():
     produtos = list(Produto.select().dicts())
-    return make_response(
-        jsonify(
-            Mensagem='Lista de Produto',
-            Produtos=produtos
-        )
-    )
+    return jsonify(produtos)
 
 @produtos_bp.route('/produtos/create', methods=['POST'])
 def create_produto():
