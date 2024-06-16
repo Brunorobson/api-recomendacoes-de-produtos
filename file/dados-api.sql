@@ -16,35 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `avaliacao`
---
-
-DROP TABLE IF EXISTS `avaliacao`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `avaliacao` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `produto_id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `nota` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `avaliacao_produto_id` (`produto_id`),
-  KEY `avaliacao_user_id` (`user_id`),
-  CONSTRAINT `avaliacao_ibfk_1` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`),
-  CONSTRAINT `avaliacao_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `avaliacao`
---
-
-LOCK TABLES `avaliacao` WRITE;
-/*!40000 ALTER TABLE `avaliacao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `avaliacao` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `categoria`
 --
 
@@ -79,7 +50,7 @@ CREATE TABLE `compras` (
   `id` int NOT NULL AUTO_INCREMENT,
   `produto_id` int NOT NULL,
   `user_id` int NOT NULL,
-  `nota` int NOT NULL,
+  `nota` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `compras_produto_id` (`produto_id`),
   KEY `compras_user_id` (`user_id`),
@@ -188,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-14 11:27:19
+-- Dump completed on 2024-06-15 21:38:24

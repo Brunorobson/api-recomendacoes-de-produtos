@@ -9,6 +9,7 @@ class Produto(Model):
     categoria_id = ForeignKeyField(Categoria, backref='categorias')
     nome = CharField(max_length=45)
     preco = DecimalField(max_digits=10, decimal_places=2)
+    
 
     class Meta:
         database = db
